@@ -109,8 +109,13 @@ export default function ProfileComp() {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Button variant="outlined" startIcon={<FileUploadIcon />}>
+            <Button
+              variant="outlined"
+              startIcon={<FileUploadIcon />}
+              component="label"
+            >
               Upload Prescription
+              <input type="file" hidden />
             </Button>
           </Grid>
           <Grid item xs={12} sm={6}>

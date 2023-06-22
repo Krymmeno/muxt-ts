@@ -1,15 +1,16 @@
 import * as React from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Product from "./Product";
 import { PRODUCTS } from "../products";
 import Grid from "@mui/material/Grid";
-import { Breadcrumbs, InputAdornment, Link, TextField, Typography } from "@mui/material";
+import {
+  Breadcrumbs,
+  InputAdornment,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Products = () => {
@@ -31,8 +32,8 @@ const Products = () => {
             <Typography color="textPrimary">Schmerzen</Typography>
           </Breadcrumbs>
         </Box>
-      {/* Search bar */}
-      <Box sx={{ marginBottom: 2 }}>
+        {/* Search bar */}
+        <Box sx={{ marginBottom: 2 }}>
           <TextField
             fullWidth
             placeholder="Search..."
@@ -47,24 +48,28 @@ const Products = () => {
           />
         </Box>
 
-      {/* Header */}
-      <Box sx={{ marginBottom: 3, textAlign: 'left' }}>
-          <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+        {/* Header */}
+        <Box sx={{ marginBottom: 3, textAlign: "left" }}>
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={{ fontWeight: "bold", color: "primary.main" }}
+          >
             Schmerzen
           </Typography>
         </Box>
 
         <Grid container spacing={2}>
-          { PRODUCTS.map((product) => 
+          {PRODUCTS.map((product) => (
             <Grid key={product.id} item xs={6} sm={4} md={4}>
-              <Product 
-                id={product.id} 
-                name={product.name} 
-                description={product.description} 
+              <Product
+                id={product.id}
+                name={product.name}
+                description={product.description}
                 image={product.image}
               />
             </Grid>
-          )}
+          ))}
         </Grid>
       </Box>
     </Container>
