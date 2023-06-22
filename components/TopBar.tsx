@@ -11,12 +11,17 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useRouter } from "next/router";
+import { ShopContext } from "../context/shop-context";
 
 export default function MenuAppBar() {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const {cartItems, addToCart} = React.useContext(ShopContext);
+
+  let itemQuantity = Object.values<number>(cartItems).reduce((t, value) => t + value, 0);
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -58,7 +63,9 @@ export default function MenuAppBar() {
             onClick={handleCart}
             color="inherit"
           >
-            <ShoppingCartIcon />
+            <Badge badgeContent={itemQuantity} color="secondary">
+              <ShoppingCartIcon />
+            </Badge>
           </IconButton>
           <IconButton
             size="large"

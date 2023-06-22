@@ -11,11 +11,12 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { ShopContext } from "../context/shop-context";
+import { ProductType } from "../products";
 
-export default function Product(props: any) {
-  const { name, imageSrc, description } = props;
-
+export default function Product({ id, name, description, image, amount }: ProductType) {
   const [expanded, setExpanded] = React.useState(false);
+  const { cartItems, addToCart } = React.useContext(ShopContext);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -36,16 +37,21 @@ export default function Product(props: any) {
       <CardMedia
         component="img" // Corrected component value
         height="194"
-        src={imageSrc} // Medication image source received from props
+        src={image} // Medication image source received from props
         alt="Medication Image"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
         {description}
         </Typography>
+        { amount !== undefined && amount > 0 && 
+          <Typography color="text.secondary" mt={2}>
+            Amount: {amount}
+          </Typography>
+        }
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to shopping cart">
+        <IconButton aria-label="add to shopping cart" onClick={() => addToCart(id)}>
           <AddShoppingCartIcon />
         </IconButton>
       </CardActions>
