@@ -11,9 +11,12 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { ShopContext } from "../context/shop-context";
+import { ProductType } from "../products";
 
-export default function Product() {
+export default function Product({ id, name, description, image, amount }: ProductType) {
   const [expanded, setExpanded] = React.useState(false);
+  const { cartItems, addToCart } = React.useContext(ShopContext);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -32,24 +35,27 @@ export default function Product() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={name}
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
+        image={image}
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {description}
         </Typography>
+        { amount !== undefined && amount > 0 && 
+          <Typography variant="body2" color="text.secondary">
+            Amount: {amount}
+          </Typography>
+        }
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to shopping cart">
+        <IconButton aria-label="add to shopping cart" onClick={() => addToCart(id)}>
           <AddShoppingCartIcon />
         </IconButton>
       </CardActions>

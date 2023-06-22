@@ -9,6 +9,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Product from "./Product";
+import { PRODUCTS } from "../products";
 
 const Products = () => {
   return (
@@ -24,21 +25,18 @@ const Products = () => {
         <List
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
         >
-          <ListItem alignItems="flex-start">
-            <Product />
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem alignItems="flex-start">
-            <Product />
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem alignItems="flex-start">
-            <Product />
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem alignItems="flex-start">
-            <Product />
-          </ListItem>
+          { PRODUCTS.map((product) => 
+          <div>
+            <ListItem alignItems="flex-start">
+              <Product 
+                id={product.id} 
+                name={product.name} 
+                description={product.description} 
+                image={product.image}
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+          </div>) }
         </List>
       </Box>
     </Container>
