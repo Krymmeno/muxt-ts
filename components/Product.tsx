@@ -25,28 +25,24 @@ export default function Product({ id, name, description, image, amount }: Produc
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
+        
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
-        title={name}
+        title={name} // Medication name received from props
         subheader="September 14, 2016"
       />
       <CardMedia
-        component="img"
+        component="img" // Corrected component value
         height="194"
-        image={image}
-        alt="Paella dish"
+        src={image} // Medication image source received from props
+        alt="Medication Image"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {description}
+        {description}
         </Typography>
         { amount !== undefined && amount > 0 && 
           <Typography variant="body2" color="text.secondary">
