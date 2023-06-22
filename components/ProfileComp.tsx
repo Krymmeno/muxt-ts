@@ -1,20 +1,14 @@
-import type { NextPage } from "next";
-import TopBar from "../components/TopBar";
 import {
   Container,
   Paper,
   Typography,
-  Stepper,
-  Step,
-  StepLabel,
-  Box,
-  Button,
-  Checkbox,
-  FormControlLabel,
   Grid,
   TextField,
+  Button,
 } from "@mui/material";
 import React from "react";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import HelpIcon from "@mui/icons-material/Help";
 
 export default function ProfileComp() {
   return (
@@ -113,6 +107,16 @@ export default function ProfileComp() {
               autoComplete="shipping country"
               variant="standard"
             />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Button variant="outlined" startIcon={<FileUploadIcon />}>
+              Upload Prescription
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Button variant="outlined" startIcon={<HelpIcon />} href="/support">
+              Contact support
+            </Button>
           </Grid>
         </Grid>
       </Paper>

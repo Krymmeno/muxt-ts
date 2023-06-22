@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
+import Products from "../components/Products";
 import TopBar from "../components/TopBar";
-import React from "react";
-import ProfileComp from "../components/ProfileComp";
+import ContactForm from "../components/ContactForm";
 
 const Login: NextPage = () => {
   return (
     <div>
       <TopBar />
-      <ProfileComp />
+      <ContactForm />
     </div>
   );
 };
