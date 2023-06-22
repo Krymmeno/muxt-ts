@@ -7,14 +7,14 @@ export type CartItemType = { itemId: number, itemQuantity: number }
 
 const getDefaultCart = () => {
     let cart: any = {};
-    for (let i = 1; i < PRODUCTS.length; i++) {
-        cart[i] = 0;
-    }
+    PRODUCTS.forEach(product => {
+        cart[product.id] = 0
+    })
     return cart;
 }
 
 export const ShopContextProvider = (props: ProviderProps<any>) => {
-    const [cartItems, setCartItems] = useState<CartItemType>(getDefaultCart());
+    const [cartItems, setCartItems] = useState<any>(getDefaultCart());
     const addToCart = (itemId: number) => {
         setCartItems((prev: any) => ({...prev, [itemId]: prev[itemId] + 1}));
     }

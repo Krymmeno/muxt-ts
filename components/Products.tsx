@@ -56,7 +56,7 @@ const Products = () => {
 
         <Grid container spacing={2}>
           { PRODUCTS.map((product) => 
-            <Grid item xs={6} sm={4} md={4}>
+            <Grid key={product.id} item xs={6} sm={4} md={4}>
               <Product 
                 id={product.id} 
                 name={product.name} 
@@ -65,41 +65,6 @@ const Products = () => {
               />
             </Grid>
           )}
-<!--           <Grid item xs={6} sm={4} md={4}>
-            <Product
-              name="ratioDolor® Ibuprofen 400 mg"
-              imageSrc="/images/ratioDolor.jpg"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <Product
-              name="Ibumetin® forte 400mg"
-              imageSrc="/images/ibumetin.jpg"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <Product
-              name="NUROFEN® Rapid Weichkapseln 400mg"
-              imageSrc="/images/nuprofen.jpg"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <Product
-              name="Redcare Halstabletten Propolis"
-              imageSrc="/images/redcare.jpg"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <Product
-              name="Mexalen® 500 mg Tabletten"
-              imageSrc="/images/mexalen.jpg"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            />
-          </Grid> -->
         </Grid>
       </Box>
     </Container>

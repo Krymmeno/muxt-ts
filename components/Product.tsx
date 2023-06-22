@@ -45,7 +45,7 @@ export default function Product({ id, name, description, image, amount }: Produc
         {description}
         </Typography>
         { amount !== undefined && amount > 0 && 
-          <Typography variant="body2" color="text.secondary">
+          <Typography color="text.secondary" mt={2}>
             Amount: {amount}
           </Typography>
         }
