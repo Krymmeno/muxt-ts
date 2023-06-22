@@ -26,7 +26,7 @@ const Products = () => {
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
         >
           { PRODUCTS.map((product) => 
-          <div>
+          <div key={product.id}>
             <ListItem alignItems="flex-start">
               <Product 
                 id={product.id} 

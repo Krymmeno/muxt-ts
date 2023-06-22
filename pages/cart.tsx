@@ -32,7 +32,7 @@ const Cart: NextPage = () => {
           >
           { PRODUCTS.map((product) => {
             if (cartItems[product.id] > 0) {
-              return <div>
+              return <div key={product.id}>
                 <ListItem alignItems="flex-start">
                   <Product 
                     id={product.id} 
