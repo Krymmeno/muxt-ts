@@ -12,7 +12,9 @@ import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
-export default function Product() {
+export default function Product(props: any) {
+  const { name, imageSrc, description } = props;
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -22,30 +24,24 @@ export default function Product() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
+        
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={name} // Medication name received from props
         subheader="September 14, 2016"
       />
       <CardMedia
-        component="img"
+        component="img" // Corrected component value
         height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        src={imageSrc} // Medication image source received from props
+        alt="Medication Image"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+        {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
