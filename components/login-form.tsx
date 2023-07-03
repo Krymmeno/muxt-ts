@@ -30,7 +30,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box id="login-form" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
@@ -56,6 +56,7 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
+            id="login-button"
             type="submit"
             fullWidth
             variant="contained"
